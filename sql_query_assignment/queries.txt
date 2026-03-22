@@ -1,0 +1,83 @@
+Step 1: Create Table
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name TEXT,
+    score INT,
+    passed BOOLEAN,
+    class INT
+);
+
+Step 2: Insert Sample Data
+
+INSERT INTO students (id, name, score, passed, class) VALUES
+(1, 'Aarav', 92, TRUE, 10),
+(2, 'Diya', 76, TRUE, 10),
+(3, 'Rohan', 65, FALSE, 9),
+(4, 'Meera', 88, TRUE, 10),
+(5, 'Kabir', 54, FALSE, 9),
+(6, 'Ananya', 95, TRUE, 10),
+(7, 'Rahul', 81, TRUE, 9),
+(8, 'Sneha', 73, TRUE, 9),
+(9, 'Arjun', 84, TRUE, 10),
+(10, 'Kavya', 69, FALSE, 9);
+
+SQL Query Tasks
+1. Retrieve all columns:
+
+SELECT * FROM students;
+
+2. Retrieve only name and score:
+
+SELECT name, score 
+FROM students;
+
+3. Students who scored above 80:
+
+SELECT * FROM students
+WHERE score > 80;
+
+4. Students who scored above 80 AND passed:
+
+SELECT * FROM students
+WHERE score > 80 AND passed = TRUE;
+
+5. Students who scored above 85 OR belong to class 9:
+
+SELECT * FROM students
+WHERE score > 85 OR class = 9;
+
+6. Students who did NOT pass:
+
+SELECT * FROM students
+WHERE NOT passed;
+
+7. Distinct classes:
+
+SELECT DISTINCT class 
+FROM students;
+
+8. Top 5 highest-scoring students:
+
+SELECT * FROM students
+ORDER BY score DESC
+LIMIT 5;
+
+9. Sort by class (ASC) and score (DESC):
+
+SELECT * FROM students
+ORDER BY class ASC, score DESC;
+
+10. Alias: rename score as final_score:
+
+SELECT name, score AS final_score 
+FROM students;
+
+11. Combined Query (Filter + Sort + Limit):
+
+SELECT name, score
+FROM students
+WHERE score > 75
+ORDER BY score DESC
+LIMIT 3;
+
